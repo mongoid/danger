@@ -6,18 +6,18 @@
 
 ### Setup
 
-Enable Danger for a project within the [mongoid organization](https://github.com/mongoid).
+Enable Danger for a project within the [mongoid organization](https://github.com/mongoid). This involves adding a token in Travis-CI and making some build script changes. See [mongoid-compatibility#3](https://github.com/mongoid/mongoid-compatibility/pull/3) for a complete example.
 
 #### Set DANGER_GITHUB_API_TOKEN in Travis-CI
 
 In Travis-CI, choose _Settings_ and add `DANGER_GITHUB_API_TOKEN` in _Environment Variables_. Tick the _Display value in build log_ option to enable Danger in pull requests. Set the value to the API key for the [mongoid-bot](https://github.com/mongoid-bot) user, look in a recent build for this project for its value.
 
-#### Add Danger
+#### Add Danger to Gemfile
 
 Add `danger` to `Gemfile`.
 
 ```ruby
-gem 'danger', '~> 3.0'
+gem 'danger', '~> 3.0', require: false
 ```
 
 #### Add Dangerfile
@@ -31,7 +31,7 @@ Add Danger to `.travis.yml`, eg. [mongoid-compatibility's Travis.yml](https://gi
 ```yaml
 matrix:
   include:
-    - rvm: 2.3.0
+    - rvm: 2.3.1
       script:
         - bundle exec danger
 ```
