@@ -14,10 +14,11 @@ In Travis-CI, choose _Settings_ and add `DANGER_GITHUB_API_TOKEN` in _Environmen
 
 #### Add Danger to Gemfile
 
-Add `danger` to `Gemfile`.
+Add `danger` and `danger-changelog` to `Gemfile`.
 
 ```ruby
 gem 'danger', '~> 3.0', require: false
+gem 'danger-changelog', '~> 0.1', require: false
 ```
 
 #### Add Dangerfile
