@@ -1,5 +1,9 @@
 ### Changelog
 
+### 0.1.1 (Next)
+
+* Your contribution here.
+
 ### 0.1.0 (9/5/2016)
 
 * [#3](https://github.com/mongoid/danger/pull/3): Initial public release as a gem for Danger 3.2.1 - [@dblock](https://github.com/dblock).
