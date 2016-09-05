@@ -14,15 +14,15 @@ In Travis-CI, choose _Settings_ and add `DANGER_GITHUB_API_TOKEN` in _Environmen
 
 #### Add Danger to Gemfile
 
-Add `danger` to `Gemfile`.
+Add `mongoid-danger` to `Gemfile`.
 
 ```ruby
-gem 'danger', '~> 3.0', require: false
+gem 'mongoid-danger', '~> 0.1.0', require: false
 ```
 
 #### Add Dangerfile
 
-Commit a `Dangerfile` with some placeholder text, eg. [mongoid-compatibility's Dangerfile](https://github.com/mongoid/mongoid-compatibility/blob/master/Dangerfile). Danger automatically inherits the [Dangerfile](Dangerfile) in the organization's `danger` repo (this repo).
+Commit a `Dangerfile`, eg. [mongoid-compatibility's Dangerfile](https://github.com/mongoid/mongoid-compatibility/blob/master/Dangerfile).
 
 #### Add Danger to Travis-CI
 
@@ -38,7 +38,7 @@ matrix:
 
 #### Commit via a Pull Request
 
-To test things out, make a dummy entry in `CHANGELOG.md` that doesn't match the standard format and make a pull request. Iterate until green.
+To test things out, make a pull request without CHANGELOG.md changes. Iterate until green.
 
 ## License
 
