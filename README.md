@@ -2,7 +2,7 @@
 
 [Danger](http://danger.systems) runs during Mongoid projects' CI process, and gives you a chance to automate common code review chores.
 
-[![Build Status](https://travis-ci.org/mongoid/danger.svg?branch=master)](https://travis-ci.org/mongoid/danger)
+[![Build Status](https://github.com/mongoid/danger/actions/workflows/test.yml/badge.svg)](https://github.com/mongoid/danger/actions)
 
 ### Setup
 
@@ -23,6 +23,32 @@ gem 'mongoid-danger', '~> 0.1.0', require: false
 #### Add Dangerfile
 
 Commit a `Dangerfile`, eg. [mongoid-compatibility's Dangerfile](https://github.com/mongoid/mongoid-compatibility/blob/master/Dangerfile).
+
+#### Add Danger to GitHub Actions
+
+Add `.github/workflows/danger.yml`, eg. [mongoid-compatibility's danger.yml](https://github.com/mongoid/mongoid-compatibility/blob/master/.github/workflows/danger.yml).
+
+```yaml
+name: PR Linter
+on: [push, pull_request]
+jobs:
+  danger:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+      - run: |
+          # the personal token is public, this is ok, base64 encode to avoid tripping Github
+          TOKEN=$(echo -n NWY1ZmM5MzEyMzNlYWY4OTZiOGU3MmI3MWQ3Mzk0MzgxMWE4OGVmYwo= | base64 --decode)
+          DANGER_GITHUB_API_TOKEN=$TOKEN bundle exec danger --verbose
+```
 
 #### Add Danger to Travis-CI
 
