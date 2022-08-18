@@ -30,12 +30,10 @@ Add `.github/workflows/danger.yml`, eg. [mongoid-compatibility's danger.yml](htt
 
 ```yaml
 name: PR Linter
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   danger:
     runs-on: ubuntu-latest
-    env:
-      BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
     steps:
       - uses: actions/checkout@v2
         with:
