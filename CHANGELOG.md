@@ -2,7 +2,9 @@
 
 ### 0.1.2 (Next)
 
-* Your contribution here.
+### 0.1.2 (8/18/2022)
+
+* [#5](https://github.com/mongoid/danger/pull/5): Upgraded to danger 8.6.1 and added GitHub Actions workflows - [@joe1chen](https://github.com/joe1chen).
 
 ### 0.1.1 (11/27/2016)
 
