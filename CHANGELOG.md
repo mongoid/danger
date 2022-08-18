@@ -1,5 +1,9 @@
 ### Changelog
 
+### 0.2.1 (Next)
+
+* Your contribution here.
+
 ### 0.2.0 (2022/08/18)
 
 * [#5](https://github.com/mongoid/danger/pull/5): Upgraded to Danger 8.6.1 - [@joe1chen](https://github.com/joe1chen).
