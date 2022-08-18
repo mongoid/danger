@@ -1,0 +1,34 @@
+name: CI RSpec Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: >-
+      Ruby ${{ matrix.entry.ruby }}
+    env:
+      CI: true
+      TESTOPTS: -v
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    strategy:
+      matrix:
+        entry:
+          - { ruby: "2.4", bundler: "2" }
+    steps:
+      - name: repo checkout
+        uses: actions/checkout@v2
+
+      - name: load ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.entry.ruby }}
+          bundler: ${{ matrix.entry.bundler }}
+
+      - name: bundle install
+        run:  bundle install --jobs 4 --retry 3
+
+      - name: test
+        timeout-minutes: 10
+        run: bundle exec rspec spec
+        continue-on-error: false
