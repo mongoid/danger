@@ -1,10 +1,9 @@
 ### Changelog
 
-### 0.1.2 (Next)
+### 0.2.0 (2022/08/18)
 
 * [#5](https://github.com/mongoid/danger/pull/5): Upgraded to Danger 8.6.1 - [@joe1chen](https://github.com/joe1chen).
 * [#5](https://github.com/mongoid/danger/pull/5): Replaced Travis-CI with GitHub Actions - [@joe1chen](https://github.com/joe1chen).
-* Your contribution here.
 
 ### 0.1.1 (2016/11/27)
 
